@@ -51,9 +51,9 @@ class Motor(models.Model):
     name = models.TextField()
     equipmentType = models.TextField(default="ENGINE")
     availability = models.TextField()
-    compressionRatio = models.DecimalField(max_digits=None, decimal_places=None)
+    compressionRatio = models.DecimalField(max_digits=7, decimal_places=5)
     cylinder = models.PositiveSmallIntegerField()
-    size = models.DecimalField(max_digits=None, decimal_places=None)
+    size = models.DecimalField(max_digits=7, decimal_places=4)
     displacement = models.PositiveSmallIntegerField()
     configuration = models.TextField()
     fuelType = models.TextField()
@@ -68,10 +68,8 @@ class Motor(models.Model):
 class Transmission(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.TextField()
-    equipmentType = TextField(default="TRANSMISSION")
+    equipmentType = models.TextField(default="TRANSMISSION")
     availability = models.TextField()
     automaticType = models.TextField()
     transsmisionType = models.TextField()
     numberOfSpeeds = models.PositiveSmallIntegerField()
-
-    
