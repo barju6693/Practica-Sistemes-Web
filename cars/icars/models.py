@@ -45,3 +45,33 @@ class Estil(models.Model):
         tuner = models.TextField()
         modelName = models.TextField()
         niceName = models.TextField()
+#
+class Motor(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.TextField()
+    equipmentType = models.TextField(default="ENGINE")
+    availability = models.TextField()
+    compressionRatio = models.DecimalField(max_digits=None, decimal_places=None)
+    cylinder = models.PositiveSmallIntegerField()
+    size = models.DecimalField(max_digits=None, decimal_places=None)
+    displacement = models.PositiveSmallIntegerField()
+    configuration = models.TextField()
+    fuelType = models.TextField()
+    horsePower = models.PositiveSmallIntegerField()
+    torque = models.PositiveSmallIntegerField()
+    totalValues = models.PositiveSmallIntegerField()
+    manufacturerEngineCode = models.TextField()
+    typeN = models.TextField()
+    code = models.TextField()
+    compressorType = models.TextField()
+
+class Transmission(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.TextField()
+    equipmentType = TextField(default="TRANSMISSION")
+    availability = models.TextField()
+    automaticType = models.TextField()
+    transsmisionType = models.TextField()
+    numberOfSpeeds = models.PositiveSmallIntegerField()
+
+    
