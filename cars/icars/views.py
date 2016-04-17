@@ -29,7 +29,7 @@ class MarcaList(ListView):
 class ModelList(ListView):
     model = Model
 
-class   ModelDetail(DetailView):
+class ModelDetail(DetailView):
     model = Model
     template_name = 'icars/model_detail.html'
 
@@ -41,3 +41,11 @@ class EstilList(ListView):
 class EstilDetail(DetailView):
     model = Estil
     template_name = 'icars/style_detail.html'
+
+class MotorList(ListView):
+    model = Motor
+    template_name = 'icars/motor_list.html'
+
+class MotorDetail(DetailView):
+    model = Motor
+    template_name = 'icars/motor_detail.html'

@@ -31,10 +31,15 @@ urlpatterns = [
     #    EstilDetail.as_view(),
     #    name='style_detail'),
 
-    url(r'^estil/details/(?P<pk>\d+)\.(?P<extension>(json|xml|html))$',
+    url(r'^estil/(?P<pk>\d+)\.(?P<extension>(json|xml|html))$',
         EstilDetail.as_view(),
         name='style_detail'),
-
+    url(r'^motor\.(?P<extension>(json|xml|html))$',
+        MotorList.as_view(),
+        name='motor_list'),
+    url(r'^motor/(?P<pk>\d+)\.(?P<extension>(json|xml|html))$',
+        MotorDetail.as_view(),
+        name='motor_detail'),
     # Create a brand: /icars/brand/create/
     #url(r'^marques/create/$',
     #    MarcaCreate.as_view(),
