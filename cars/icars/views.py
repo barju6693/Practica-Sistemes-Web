@@ -16,18 +16,28 @@ class MarcaList(ListView):
     context_object_name = 'marques_list'
     template_name = 'icars/marca_list.html'
 
-class MarcaCreate(CreateView):
-    model = Marca
-    template_name = 'icars/form.html'
-    form_class = MarcaForm
-
-    def form_valid(self, form):
-        form.instance.marca = Marca.objects.get(id=self.kwargs['pk'])
-        return super(MarcaCreate, self).form_valid(form)
+#abortem el create per pract2
+#class MarcaCreate(CreateView):
+#    model = Marca
+#    template_name = 'icars/form.html'
+#    form_class = MarcaForm
+#
+#    def form_valid(self, form):
+#        form.instance.name = self.request.name
+#        return super(MarcaCreate, self).form_valid(form)
 
 class ModelList(ListView):
     model = Model
 
+class   ModelDetail(DetailView):
+    model = Model
+    template_name = 'icars/model_detail.html'
+
+class EstilList(ListView):
+    model = Estil
+    context_object_name = 'styles_list'
+    template_name = 'icars/style_list.html'
+
 class EstilDetail(DetailView):
     model = Estil
-    queryset = Estil.objects.order_by('year')[:10]
+    template_name = 'icars/style_detail.html'

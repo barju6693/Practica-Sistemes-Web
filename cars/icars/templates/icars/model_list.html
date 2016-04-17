@@ -1,0 +1,13 @@
+{% extends "icars/base.html" %}
+{% block content %}
+<h1>
+    Models
+</h1>
+<ul>
+    {% for model in model_list %}
+        <li><a>
+            {{ model.name }}</a></li>
+    {% empty %}<li>Sorry, no models registered yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

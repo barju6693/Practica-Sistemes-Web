@@ -19,13 +19,25 @@ urlpatterns = [
     url(r'^models\.(?P<extension>(json|xml|html))$',
         ModelList.as_view(),
         name='model_list'),
+    url(r'^models/(?P<pk>\d+)\.(?P<extension>(json|xml|html))$',
+        ModelDetail.as_view(),
+        name='model_detail'),
     #List 10 styles : /icars/estil.json
     url(r'^estil\.(?P<extension>(json|xml|html))$',
+        EstilList.as_view(),
+        name='style_list'),
+
+    #url(r'^estil/details\.(?P<extension>(json|xml|html))$',
+    #    EstilDetail.as_view(),
+    #    name='style_detail'),
+
+    url(r'^estil/details/(?P<pk>\d+)\.(?P<extension>(json|xml|html))$',
         EstilDetail.as_view(),
-        name='new_car_list'),
+        name='style_detail'),
+
     # Create a brand: /icars/brand/create/
-    url(r'^marques/create/$',
-        MarcaCreate.as_view(),
-        name='brand_create'),
+    #url(r'^marques/create/$',
+    #    MarcaCreate.as_view(),
+    #    name='brand_create'),
 
 ]

@@ -2,11 +2,10 @@
 {% block content %}
 <h1>
     Cars
-    {% if user %}(<a href="{% url 'icars:brand_create' %}">add</a>){% endif %}
 </h1>
 <ul>
     {% for marca in marques_list %}
-        <li><a href="{% url 'icars:cars_detail' marca.id 'html' %}">
+        <li><a>
             {{ marca.name }}</a></li>
     {% empty %}<li>Sorry, no brands registered yet.</li>
     {% endfor %}

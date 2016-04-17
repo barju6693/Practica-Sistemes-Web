@@ -1,0 +1,34 @@
+{% extends "icars/base.html" %}
+{% block content %}
+<h1>
+    {{ estil.name }}
+</h1>
+<h2>Make:</h2>
+<p>
+    {{ estil.Make.name }}, {{ estil.Make.niceName }} <br/>
+</p>
+
+<h2>
+    Model
+</h2>
+<ul>
+    {% for model in estil.model.all %}
+        <li><a href="{% url 'icars:model_detail' model.id 'html' %}">
+            {{ model.name }}</a></li>
+    {% empty %}<li>Sorry, model is not found.</li>
+    {% endfor %}
+</ul>
+<h2>Year</h2>
+<ul>
+    {% for year in estil.year.all %}
+      {{ estil.year.year }}<br/>
+    {% endfor %}
+</ul>
+
+<h2>Submodel:</h2>
+<p>
+    {{ estil.Submodel.modelName }}, {{ estil.Submodel.niceName }}, <br/>
+    {{ estil.Submodel.body }}, {{ estil.Submodel.fuel }}, <br/>
+    {{ estil.Submodel.tuner }} <br/>
+</p>
+{% endblock %}
