@@ -23,5 +23,9 @@ urlpatterns = [
     url(r'^estil\.(?P<extension>(json|xml|html))$',
         EstilDetail.as_view(),
         name='new_car_list'),
+    # Create a brand: /icars/brand/create/
+    url(r'^marques/create/$',
+        MarcaCreate.as_view(),
+        name='brand_create'),
 
 ]
