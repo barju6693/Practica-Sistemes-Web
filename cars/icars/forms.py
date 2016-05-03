@@ -10,3 +10,13 @@ class ModelForm(ModelForm):
     class Meta:
         model = Model
         exclude = ('niceName', 'state', 'years',)
+
+class MotorForm(ModelForm):
+    class Meta:
+        model = Motor
+        exclude = ('availability', 'compressionRatio','totalValues', 'manufacturerEngineCode', 'code','configuration',)
+
+class EstilForm(ModelForm):
+    class Meta:
+        model = Estil
+        

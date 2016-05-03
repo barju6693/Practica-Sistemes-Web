@@ -16,18 +16,26 @@ class MarcaList(ListView):
     context_object_name = 'marques_list'
     template_name = 'icars/marca_list.html'
 
-#abortem el create per pract2
-#class MarcaCreate(CreateView):
-#    model = Marca
-#    template_name = 'icars/form.html'
-#    form_class = MarcaForm
-#
-#    def form_valid(self, form):
-#        form.instance.name = self.request.name
-#        return super(MarcaCreate, self).form_valid(form)
+class MarcaCreate(CreateView):
+    model = Marca
+    template_name = 'icars/form.html'
+    form_class = MarcaForm
+
+    def form_valid(self, form):
+        form.instance.name = self.request.name
+        return super(MarcaCreate, self).form_valid(form)
 
 class ModelList(ListView):
     model = Model
+
+class ModelCreate(CreateView):
+    model = Model
+    template_name = 'icars/form.html'
+    form_class = ModelForm
+
+    def form_valid(self, form):
+        form.instance.name = self.request.name
+        return super(ModelCreate, self).form_valid(form)
 
 class ModelDetail(DetailView):
     model = Model
@@ -38,6 +46,15 @@ class EstilList(ListView):
     context_object_name = 'styles_list'
     template_name = 'icars/style_list.html'
 
+class EstilCreate(CreateView):
+    model = Estil
+    template_name = 'icars/form.html'
+    form_class = EstilForm
+
+    def form_valid(self, form):
+        form.instance.name = self.request.name
+        return super(EstilCreate, self).form_valid(form)
+
 class EstilDetail(DetailView):
     model = Estil
     template_name = 'icars/style_detail.html'
@@ -45,6 +62,15 @@ class EstilDetail(DetailView):
 class MotorList(ListView):
     model = Motor
     template_name = 'icars/motor_list.html'
+
+class MotorCreate(CreateView):
+    model = Motor
+    template_name = 'icars/form.html'
+    form_class = MotorForm
+
+    def form_valid(self, form):
+        form.instance.name = self.request.name
+        return super(MotorCreate, self).form_valid(form)
 
 class MotorDetail(DetailView):
     model = Motor
