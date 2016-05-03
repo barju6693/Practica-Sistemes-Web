@@ -19,4 +19,4 @@ class MotorForm(ModelForm):
 class EstilForm(ModelForm):
     class Meta:
         model = Estil
-        
+        exclude = ('trim','Submodel.niceName',)

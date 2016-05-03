@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.views.generic.edit import CreateView
 from django.views.generic import DetailView, ListView
 from models import *
-from forms import MarcaForm, ModelForm
+from forms import *
 
 # Create your views here.
 

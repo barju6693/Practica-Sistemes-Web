@@ -80,7 +80,7 @@ urlpatterns = [
     #Create a style: /icars/estil/create/
     url(r'^estil/create/$',
         EstilCreate.as_view(),
-        name='estil_create'),
+        name='style_create'),
     #Edit a model: /icars/estil/1/edit/
     url(r'^estil/(?P<pk>\d+)/edit/$',
         UpdateView.as_view(

@@ -15,9 +15,12 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from icars.views import *
+from django.contrib.auth.views import login, logout
 
 urlpatterns = [
     url(r'^$', mainpage),
     url(r'^admin/', admin.site.urls),
-    url(r'^icars/', include('icars.urls', namespace='icars'))
+    url(r'^icars/', include('icars.urls', namespace='icars')),
+    url(r'^login/$',	login,	name='login'),
+	url(r'^logout/$',	logout,	name='logout')
 ]
