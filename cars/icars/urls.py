@@ -52,6 +52,10 @@ urlpatterns = [
     url(r'^motor/(?P<pk>\d+)\.(?P<extension>(json|xml|html))$',
         MotorDetail.as_view(),
         name='motor_detail'),
+
+        url(r'^marques/(?P<pk>\d+)(\.(?P<extension>(json|xml|html)))?$',
+            MarcaDetail.as_view(),
+            name='brand_detail'),
     # Create a brand: /icars/marques/create/
     url(r'^marques/create/$',
         MarcaCreate.as_view(),
