@@ -1,7 +1,18 @@
 from django.db import models
-
+from django.core.urlresolvers import reverse
 
 # Create your models here.
+
+
+class Marca(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.TextField()
+    niceName = models.TextField()
+    models = []
+    def __unicode__(self):
+        return u"%s" % self.name
+    def get_absolute_url(self):
+        return reverse('icars:brand_detail', kwargs={'pk': self.pk})
 
 class Model(models.Model):
     id = models.AutoField(primary_key=True)
@@ -10,11 +21,10 @@ class Model(models.Model):
     niceName = models.TextField()
     state = []
 
-class Marca(models.Model):
-    id = models.AutoField(primary_key=True)
-    conjuntModels = []
-    name = models.TextField()
-    niceName = models.TextField()
+    def __unicode__(self):
+        return u"%s" % self.name
+    def get_absolute_url(self):
+        return reverse('icars:model_detail', kwargs={'pk': self.pk})
 
 class Year(models.Model):
     id = models.AutoField(primary_key=True)

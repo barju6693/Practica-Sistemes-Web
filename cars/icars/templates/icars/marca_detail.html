@@ -1,0 +1,18 @@
+{% extends "icars/base.html" %}
+{% block content %}
+<h1>Name:</h1>
+<p>
+    {{ marca.name }}
+</p>
+<h2>
+    Models
+</h2>
+<ul>
+    {% for marca in marca.models.all %}
+        <li><a href="{% url 'icars:model_detail' marca.id model.id 'html' %}">
+            {{ model.name }}</a></li>
+    {% empty %}<li>Sorry, no models for this brand yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

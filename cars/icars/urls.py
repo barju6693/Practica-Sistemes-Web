@@ -9,7 +9,7 @@ from views import *
 urlpatterns = [
     #home page
     url(r'^$',
-        RedirectView.as_view(url=reverse_lazy('icars:home', kwargs={'extension': 'html'})),
+        RedirectView.as_view(url=reverse_lazy('icars:marca_list', kwargs={'extension': 'html'})),
         name='home_page'),
 
         #url(r'^home\.(?P<extension>(json|xml|html))$',
@@ -19,6 +19,10 @@ urlpatterns = [
     url(r'^marques\.(?P<extension>(json|xml|html))$',
         MarcaList.as_view(),
         name='marca_list'),
+        # Restaurant details, ex.: /myrestaurants/restaurants/1.json
+        url(r'^marques/(?P<pk>\d+)\.(?P<extension>(json|xml|html))$',
+            MarcaDetail.as_view(),
+            name='marca_detail'),
     # List all models: /icars/models.json
     url(r'^models\.(?P<extension>(json|xml|html))$',
         ModelList.as_view(),
