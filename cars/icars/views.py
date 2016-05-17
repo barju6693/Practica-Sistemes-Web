@@ -11,6 +11,8 @@ from forms import *
 def mainpage(request):
     return HttpResponse('CARS')
 
+#class HomePage(ListView):
+
 class MarcaList(ListView):
     model = Marca
     context_object_name = 'marques_list'
@@ -22,7 +24,7 @@ class MarcaCreate(CreateView):
     form_class = MarcaForm
 
     def form_valid(self, form):
-        form.instance.name = self.request.name
+        form.instance.niceName = self.request.niceName
         return super(MarcaCreate, self).form_valid(form)
 
 class ModelList(ListView):

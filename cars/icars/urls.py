@@ -9,8 +9,12 @@ from views import *
 urlpatterns = [
     #home page
     url(r'^$',
-        RedirectView.as_view(url=reverse_lazy('icars:marca_list', kwargs={'extension': 'html'})),
+        RedirectView.as_view(url=reverse_lazy('icars:home', kwargs={'extension': 'html'})),
         name='home_page'),
+
+        #url(r'^home\.(?P<extension>(json|xml|html))$',
+        #    HomePage.as_view(),
+        #    name='home'),
     # List all brands: /icars/marques.json
     url(r'^marques\.(?P<extension>(json|xml|html))$',
         MarcaList.as_view(),

@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^icars/', include('icars.urls', namespace='icars')),
     url(r'^login/$',	login,	name='login'),
 	url(r'^logout/$',	logout,	name='logout')
+    #url(r'^registration/$',	registration,	name='registration')
 ]
