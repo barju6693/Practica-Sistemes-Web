@@ -62,9 +62,9 @@ class EstilCreate(CreateView):
     template_name = 'icars/form.html'
     form_class = EstilForm
 
-    def form_valid(self, form):
+    """def form_valid(self, form):
         form.instance.name = self.request.name
-        return super(EstilCreate, self).form_valid(form)
+        return super(EstilCreate, self).form_valid(form)"""
 
 
 class EstilDetail(DetailView):
@@ -82,9 +82,9 @@ class MotorCreate(CreateView):
     template_name = 'icars/form.html'
     form_class = MotorForm
 
-    def form_valid(self, form):
+    """def form_valid(self, form):
         form.instance.name = self.request.name
-        return super(MotorCreate, self).form_valid(form)
+        return super(MotorCreate, self).form_valid(form)"""
 
 
 class MotorDetail(DetailView):

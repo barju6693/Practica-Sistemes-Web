@@ -28,9 +28,9 @@ urlpatterns = [
         ModelList.as_view(),
         name='model_list'),
 
-    url(r'^models/(?P<pk>\d+)\.(?P<extension>(json|xml|html))$',
-        ModelDetail.as_view(),
-        name='model_detail'),
+        url(r'^models/(?P<pk>\d+)(\.(?P<extension>(json|xml|html)))?$',
+            ModelDetail.as_view(),
+            name='model_detail'),
     #List 10 styles : /icars/estil.json
     url(r'^estil\.(?P<extension>(json|xml|html))$',
         EstilList.as_view(),

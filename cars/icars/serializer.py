@@ -45,8 +45,8 @@ class EstilSerializer(serializers.Serializer):
     id = serializers.AutoField(primary_key=True)
     name = serializers.TextField()
     trim = serializers.TextField()
-    #en aquestes classe interne, no sei si al on delete
-    #s'ha de possar serializers o models
+    # en aquestes classe interne, no sei si al on delete
+    # s'ha de possar serializers o models
 
     class MakeSerializer:
         id = serializers.ForeignKey(Marca, on_delete=serializers.CASCADE)
@@ -99,7 +99,7 @@ class TransmissionSerializer(serializers.Serializer):
     transsmisionType = serializers.TextField()
     numberOfSpeeds = serializers.PositiveSmallIntegerField()
 
-#quan es passa format, ha de ser una string; sera "json" , "xml"
+# quan es passa format, ha de ser una string; sera "json" , "xml"
 
 
 def SerializeObject(serializedObj, format):
