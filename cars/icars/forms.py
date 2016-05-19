@@ -17,8 +17,7 @@ class ModelForm(ModelForm):
 class MotorForm(ModelForm):
     class Meta:
         model = Motor
-        exclude = ('availability', 'compressionRatio', 'totalValues',
-        'manufacturerEngineCode', 'code', 'configuration',)
+        exclude = ('availability',)
 
 
 class EstilForm(ModelForm):

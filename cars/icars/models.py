@@ -82,6 +82,12 @@ class Motor(models.Model):
     code = models.TextField()
     compressorType = models.TextField()
 
+    def __unicode__(self):
+        return u"%s" % self.name
+
+    def get_absolute_url(self):
+        return reverse('icars:motor_detail', kwargs={'pk': self.pk})
+
 
 class Transmission(models.Model):
     id = models.AutoField(primary_key=True)
