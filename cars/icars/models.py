@@ -41,6 +41,12 @@ class Estil(models.Model):
     name = models.TextField()
     trim = models.TextField()
 
+    def __unicode__(self):
+        return u"%s" % self.name
+
+    def get_absolute_url(self):
+        return reverse('icars:style_detail', kwargs={'pk': self.pk})
+
     class Make:
         id = models.ForeignKey(Marca, on_delete=models.CASCADE)
         name = models.TextField()

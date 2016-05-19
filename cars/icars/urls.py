@@ -41,7 +41,7 @@ urlpatterns = [
     #    name='style_detail'),
 
     #Detail of a style: /icars/estil/1.html
-    url(r'^estil/(?P<pk>\d+)\.(?P<extension>(json|xml|html))$',
+    url(r'^estil/(?P<pk>\d+)\.(?P<extension>(json|xml|html))?$',
         EstilDetail.as_view(),
         name='style_detail'),
     #List all motors: /icars/motor.html
@@ -49,9 +49,10 @@ urlpatterns = [
         MotorList.as_view(),
         name='motor_list'),
     #Detail of a motor: icars/motor/1.html
-    url(r'^motor/(?P<pk>\d+)\.(?P<extension>(json|xml|html))$',
-        MotorDetail.as_view(),
-        name='motor_detail'),
+
+url(r'^motor/(?P<pk>\d+)\.(?P<extension>(json|xml|html))?$',
+    MotorDetail.as_view(),
+    name='motor_detail'),
 
         url(r'^marques/(?P<pk>\d+)(\.(?P<extension>(json|xml|html)))?$',
             MarcaDetail.as_view(),
