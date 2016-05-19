@@ -26,12 +26,15 @@ class MarcaCreate(CreateView):
     #    form.instance.niceName = self.request.niceName
     #    return super(MarcaCreate, self).form_valid(form)
 
+
 class MarcaDetail(DetailView):
     model = Marca
     template_name = 'icars/marca_detail.html'
 
+
 class ModelList(ListView):
     model = Model
+
 
 class ModelCreate(CreateView):
     model = Model
@@ -42,14 +45,17 @@ class ModelCreate(CreateView):
         form.instance.name = self.request.name
         return super(ModelCreate, self).form_valid(form)
 
+
 class ModelDetail(DetailView):
     model = Model
     template_name = 'icars/model_detail.html'
+
 
 class EstilList(ListView):
     model = Estil
     context_object_name = 'styles_list'
     template_name = 'icars/style_list.html'
+
 
 class EstilCreate(CreateView):
     model = Estil
@@ -60,13 +66,16 @@ class EstilCreate(CreateView):
         form.instance.name = self.request.name
         return super(EstilCreate, self).form_valid(form)
 
+
 class EstilDetail(DetailView):
     model = Estil
     template_name = 'icars/style_detail.html'
 
+
 class MotorList(ListView):
     model = Motor
     template_name = 'icars/motor_list.html'
+
 
 class MotorCreate(CreateView):
     model = Motor
@@ -76,6 +85,7 @@ class MotorCreate(CreateView):
     def form_valid(self, form):
         form.instance.name = self.request.name
         return super(MotorCreate, self).form_valid(form)
+
 
 class MotorDetail(DetailView):
     model = Motor
