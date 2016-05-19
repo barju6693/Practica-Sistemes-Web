@@ -41,9 +41,9 @@ class ModelCreate(CreateView):
     template_name = 'icars/form.html'
     form_class = ModelForm
 
-    def form_valid(self, form):
+    """def form_valid(self, form):
         form.instance.name = self.request.name
-        return super(ModelCreate, self).form_valid(form)
+        return super(ModelCreate, self).form_valid(form)"""
 
 
 class ModelDetail(DetailView):

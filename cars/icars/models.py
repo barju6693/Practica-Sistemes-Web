@@ -9,10 +9,13 @@ class Marca(models.Model):
     name = models.TextField()
     niceName = models.TextField()
     models = []
+
     def __unicode__(self):
         return u"%s" % self.name
+
     def get_absolute_url(self):
         return reverse('icars:brand_detail', kwargs={'pk': self.pk})
+
 
 class Model(models.Model):
     id = models.AutoField(primary_key=True)
@@ -23,12 +26,15 @@ class Model(models.Model):
 
     def __unicode__(self):
         return u"%s" % self.name
+
     def get_absolute_url(self):
         return reverse('icars:model_detail', kwargs={'pk': self.pk})
+
 
 class Year(models.Model):
     id = models.AutoField(primary_key=True)
     year = models.PositiveSmallIntegerField(default=1)
+
 
 class Estil(models.Model):
     id = models.AutoField(primary_key=True)
@@ -56,6 +62,7 @@ class Estil(models.Model):
         modelName = models.TextField()
         niceName = models.TextField()
 
+
 class Motor(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.TextField()
@@ -74,6 +81,7 @@ class Motor(models.Model):
     typeN = models.TextField()
     code = models.TextField()
     compressorType = models.TextField()
+
 
 class Transmission(models.Model):
     id = models.AutoField(primary_key=True)
