@@ -3,19 +3,24 @@ from django.core import serializers
 from icars.models import Marca, Model, Year, Estil, Motor, Transmission
 from rest_framework import serializers
 from rest_framework.fields import CharField
-from rest_framework.relations import HyperlinkedRelatedField, HyperlinkedIdentityField
+from rest_framework.relations import HyperlinkedRelatedField,
+HyperlinkedIdentityField
 
 #class ModelSerializer(serializers.HyperlinkedModelSerializer):
-    
+
+
 class MarcaSerializer(serializers.Serializer):
     id = serializers.AutoField(primary_key=True)
     name = serializers.TextField()
     niceName = serializers.TextField()
     models = []
+
     def __unicode__(self):
         return u"%s" % self.name
+
     def get_absolute_url(self):
         return reverse('icars:brand_detail', kwargs={'pk': self.pk})
+
 
 class ModelSerializer(serializers.Serializer):
     id = serializers.AutoField(primary_key=True)
@@ -26,12 +31,15 @@ class ModelSerializer(serializers.Serializer):
 
     def __unicode__(self):
         return u"%s" % self.name
+
     def get_absolute_url(self):
         return reverse('icars:model_detail', kwargs={'pk': self.pk})
+
 
 class YearSerializer(serializers.Serializer):
     id = serializers.AutoField(primary_key=True)
     year = serializers.PositiveSmallIntegerField(default=1)
+
 
 class EstilSerializer(serializers.Serializer):
     id = serializers.AutoField(primary_key=True)
@@ -39,6 +47,7 @@ class EstilSerializer(serializers.Serializer):
     trim = serializers.TextField()
     #en aquestes classe interne, no sei si al on delete
     #s'ha de possar serializers o models
+
     class MakeSerializer:
         id = serializers.ForeignKey(Marca, on_delete=serializers.CASCADE)
         name = serializers.TextField()
@@ -60,6 +69,7 @@ class EstilSerializer(serializers.Serializer):
         modelName = serializers.TextField()
         niceName = serializers.TextField()
 
+
 class MotorSerializer(serializers.Serializer):
     id = serializers.AutoField(primary_key=True)
     name = serializers.TextField()
@@ -79,6 +89,7 @@ class MotorSerializer(serializers.Serializer):
     code = serializers.TextField()
     compressorType = serializers.TextField()
 
+
 class TransmissionSerializer(serializers.Serializer):
     id = serializers.AutoField(primary_key=True)
     name = serializers.TextField()
@@ -89,10 +100,13 @@ class TransmissionSerializer(serializers.Serializer):
     numberOfSpeeds = serializers.PositiveSmallIntegerField()
 
 #quan es passa format, ha de ser una string; sera "json" , "xml"
-def SerializeObject(serializedObj , format):
-    serialized_data = serializers.serialize(format , serializedObj)
 
-def DesserializeObject(serialized_data , format):
+
+def SerializeObject(serializedObj, format):
+    serialized_data = serializers.serialize(format, serializedObj)
+
+
+def DesserializeObject(serialized_data, format):
     for deserialized_object in serializers.deserialize(format, serialized_data):
         deserialized_object.save()
     return deserialized_object
