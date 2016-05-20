@@ -7,7 +7,7 @@
 <ul>
     {% for motor in motor_list %}
         <li><a>
-            {{ motor.name }},{{ motor.cilinder }},{{ motor.horsePower }},{{ motor.fuelType }}</a></li>
+            {{ motor.name }},{{ motor.cilinder }},{{ motor.horsePower }},{{ motor.fuelType }} ({{ motor.id }})</a></li>
     {% empty %}<li>Sorry, no motors registered yet.</li>
     {% endfor %}
 </ul>

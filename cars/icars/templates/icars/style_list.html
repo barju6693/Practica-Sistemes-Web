@@ -2,11 +2,12 @@
 {% block content %}
 <h1>
     Styles
+    {% if user %}(<a href="{% url 'icars:style_create' %}">add</a>){% endif %}
 </h1>
 <ul>
     {% for estil in style_list %}
         <li><a href="{% url 'icars:style_detail' estil.id 'html' %}">
-            {{ estil.name }}</a></li>
+            {{ estil.name }} ({{ estil.id }})</a></li>
     {% empty %}<li>Sorry, no styles registered yet.</li>
     {% endfor %}
 </ul>

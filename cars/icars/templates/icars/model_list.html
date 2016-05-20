@@ -7,7 +7,7 @@
 <ul>
     {% for model in model_list %}
         <li><a>
-            {{ model.name }}</a></li>
+            {{ model.name }} ({{ model.id }})</a></li>
     {% empty %}<li>Sorry, no models registered yet.</li>
     {% endfor %}
 </ul>

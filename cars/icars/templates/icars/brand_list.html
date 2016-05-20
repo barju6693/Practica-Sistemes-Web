@@ -7,7 +7,7 @@
 <ul>
     {% for marca in brand_list %}
         <li><a>
-            {{ marca.name }}</a></li>
+            {{ marca.name }} ({{ marca.id }})</a></li>
     {% empty %}<li>Sorry, no brands registered yet.</li>
     {% endfor %}
 </ul>
