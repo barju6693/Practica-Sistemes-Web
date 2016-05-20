@@ -2,15 +2,12 @@
 {% block content %}
 <h1>Name:</h1>
 <p>
-    {{ marca.name }}
+    {{ marca.name }}, {{ marca.niceName }}
+
 </p>
-<h2>
-    Models
-     (<a href="{% url 'icars:model_create' %}">add</a>)
-</h2>
 <ul>
-    {% for marca in marca.models.all %}
-        <li><a href="{% url 'icars:model_detail' marca.id model.id 'html' %}">
+    {% for model in marca.models.all %}
+        <li><a>
             {{ model.name }}</a></li>
     {% empty %}<li>Sorry, no models for this brand yet.</li>
     {% endfor %}

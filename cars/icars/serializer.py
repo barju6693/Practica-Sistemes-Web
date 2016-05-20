@@ -6,8 +6,6 @@ from rest_framework.fields import CharField
 from rest_framework.relations import HyperlinkedRelatedField,
 HyperlinkedIdentityField
 
-#class ModelSerializer(serializers.HyperlinkedModelSerializer):
-
 
 class MarcaSerializer(serializers.Serializer):
     id = serializers.AutoField(primary_key=True)

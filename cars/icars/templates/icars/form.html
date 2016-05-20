@@ -8,3 +8,11 @@
         <input type="submit" value="Submit"/>
     </form>
 {% endblock %}
+<script>
+  $(function()	{
+    var	brands	=	["Opel",	"Toyota", "Ford",	"Peugeot",	"Nisan","Mercedes"];
+    $(	"#id_brands"	).autocomplete({
+      source:	brands
+    });
+  });
+</script>

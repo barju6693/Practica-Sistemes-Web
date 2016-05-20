@@ -2,6 +2,7 @@
 {% block content %}
 <h1>
     Models
+        {% if user %}(<a href="{% url 'icars:model_create' %}">add</a>){% endif %}
 </h1>
 <ul>
     {% for model in model_list %}

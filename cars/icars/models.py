@@ -8,8 +8,6 @@ class Marca(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.TextField()
     niceName = models.TextField()
-    models = []
-
     def __unicode__(self):
         return u"%s" % self.name
 
@@ -22,7 +20,7 @@ class Model(models.Model):
     years = []
     name = models.TextField()
     niceName = models.TextField()
-    state = []
+    marca = models.ForeignKey(Marca, null=True, related_name='models')
 
     def __unicode__(self):
         return u"%s" % self.name
@@ -103,3 +101,4 @@ class Transmission(models.Model):
     automaticType = models.TextField()
     transsmisionType = models.TextField()
     numberOfSpeeds = models.PositiveSmallIntegerField()
+    motor = models.ForeignKey(Motor)

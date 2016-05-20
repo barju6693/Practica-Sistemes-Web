@@ -1,0 +1,14 @@
+{% extends "icars/base.html" %}
+{% block content %}
+<h1>
+    Motors
+        {% if user %}(<a href="{% url 'icars:motor_create' %}">add</a>){% endif %}
+</h1>
+<ul>
+    {% for motor in motor_list %}
+        <li><a>
+            {{ motor.name }},{{ motor.cilinder }},{{ motor.horsePower }},{{ motor.fuelType }}</a></li>
+    {% empty %}<li>Sorry, no motors registered yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
