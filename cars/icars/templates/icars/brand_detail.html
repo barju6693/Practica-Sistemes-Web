@@ -4,11 +4,11 @@
 <h1>Name:</h1>
 <p>
     <span property="name">{{ marca.name }}</span>
-    <span property="niceName">, {{ marca.niceName }}</span>
+    <span property="alternateName">, {{ marca.niceName }}</span>
 
 </p>
 <span rel="models">
-  <ul typeof="Models">
+  <ul typeof="ProducModel">
     {% for model in marca.models.all %}
         <li><a>
             <span property="name">{{ model.name }}</span>
