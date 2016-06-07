@@ -1,41 +1,46 @@
 {% extends "icars/base.html" %}
 {% block content %}
 <span vocab= "http://schema.org/" typeof="Product">
-  <p>
     <h1>
       <span property="name">{{ estil.name }}</span>
     </h1>
-  </p>
-</span>
-  <li vocab= "http://schema.org/" typeof="Organization">
-    <h2>Make:</h2>
-    <p>
-      <span property="name">{{ estil.make.name }}</span>,
-      <span property="alternateName">{{ estil.make.niceName }}</span>
-    </p>
-  </li>
+  <ul rel="organization">
+    <li typeof="Organization">
+    	<h2>Make:</h2>
+    	<p>
+      	<span property="name">{{ estil.make.name }}</span>,
+      	<span property="alternateName">{{ estil.make.niceName }}</span>
+    	</p>
+  	</li>
+  </ul>
     <h3>
     Model
     </h3>
-    <ul>
-      {% for model in estil.model.all %}
-        <li><a href="{% url 'icars:model_detail' model.id 'html' %}">
-          {{ model.name }}
-        </a></li>
-        {% empty %}<li>Sorry, model is not found.</li>
-        {% endfor %}
+  	{% for model in estil.model.all %}
+  	<ul rel = "model" >
+      <p typeof ="ProductModel" >
+       <li><a href="{% url 'icars:model_detail' model.id 'html' %}">
+        <span property="name">{{ model.name }}</span>
+       </a></li>
+       {% empty %}<li>Sorry, model is not found.</li>
+       {% endfor %}
+      </p>
     </ul>
-    <h4>Year</h4>
-      <ul>
+    <h3>Year</h3>
         {% for year in estil.year.all %}
-        {{ estil.year.year }}
+        <li property="productionDate">{{ estil.year.year }}</li>
         {% endfor %}
-      </ul>
-
-      <h5>Submodel:</h5>
+  	<ul rel="vehicle">
+      <li typeof="Vehicle">
+        <h3>Submodel:</h3>
         <p>
-          {{ estil.submodel.modelName }}, {{ estil.submodel.niceName }}, <br/>
-          {{ estil.submodel.body }}, {{ estil.submodel.fuel }},
-          {{ estil.submodel.tuner }}
+          <span property = "model">{{ estil.submodel.modelName }}</span>
+          <span property = "alternateName">, {{ estil.submodel.niceName }}</span>
+          <span property = "category">, {{ estil.submodel.body }}</span>
+          <span property = "fuelType">, {{ estil.submodel.fuel }}</span>
+          <span property = "vehicleInteriorType">, {{ estil.submodel.tuner }}</span>
         </p>
+      </li>
+    </ul>
+</span>
 {% endblock %}
