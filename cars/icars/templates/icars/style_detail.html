@@ -1,35 +1,41 @@
 {% extends "icars/base.html" %}
 {% block content %}
-<span vocab= "http://schema.org/" typeof="Style">
-<h1>
-  <span property="Estil">{{ estil.name }}</span>
-</h1>
-<h2>Make:</h2>
-<p>
-    {{ estil.make.name }}, {{ estil.make.niceName }} <br/>
-</p>
-
-<h2>
+<span vocab= "http://schema.org/" typeof="Product">
+  <p>
+    <h1>
+      <span property="name">{{ estil.name }}</span>
+    </h1>
+  </p>
+</span>
+  <li vocab= "http://schema.org/" typeof="Organization">
+    <h2>Make:</h2>
+    <p>
+      <span property="name">{{ estil.make.name }}</span>,
+      <span property="alternateName">{{ estil.make.niceName }}</span>
+    </p>
+  </li>
+    <h3>
     Model
-</h2>
-<ul>
-    {% for model in estil.model.all %}
+    </h3>
+    <ul>
+      {% for model in estil.model.all %}
         <li><a href="{% url 'icars:model_detail' model.id 'html' %}">
-            {{ model.name }}</a></li>
-    {% empty %}<li>Sorry, model is not found.</li>
-    {% endfor %}
-</ul>
-<h2>Year</h2>
-<ul>
-    {% for year in estil.year.all %}
-      {{ estil.year.year }}<br/>
-    {% endfor %}
-</ul>
+          {{ model.name }}
+        </a></li>
+        {% empty %}<li>Sorry, model is not found.</li>
+        {% endfor %}
+    </ul>
+    <h4>Year</h4>
+      <ul>
+        {% for year in estil.year.all %}
+        {{ estil.year.year }}
+        {% endfor %}
+      </ul>
 
-<h2>Submodel:</h2>
-<p>
-    {{ estil.submodel.modelName }}, {{ estil.submodel.niceName }}, <br/>
-    {{ estil.submodel.body }}, {{ estil.submodel.fuel }}, <br/>
-    {{ estil.submodel.tuner }} <br/>
-</p>
+      <h5>Submodel:</h5>
+        <p>
+          {{ estil.submodel.modelName }}, {{ estil.submodel.niceName }}, <br/>
+          {{ estil.submodel.body }}, {{ estil.submodel.fuel }},
+          {{ estil.submodel.tuner }}
+        </p>
 {% endblock %}
