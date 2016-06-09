@@ -2,11 +2,11 @@
 {% block content %}
 <span vocab= "http://schema.org/" typeof= "Product">
 <h1>Name:</h1>
+  <span property="name">{{ marca.name }}</span>
   <span rel="brand">
     <ul typeof="Brand">
     <p>
-      <span property="name">{{ marca.name }}</span>
-      <span property="alternateName">, {{ marca.niceName }}</span>
+      <span property="name">, {{ marca.niceName }}</span>
     </p>
   </ul>
   </span>
