@@ -1,21 +1,25 @@
 {% extends "icars/base.html" %}
 {% block content %}
-<span vocab= "http://schema.org/" typeof="Brand">
+<span vocab= "http://schema.org/" typeof= "Product">
 <h1>Name:</h1>
-<p>
-    <span property="name">{{ marca.name }}</span>
-    <span property="alternateName">, {{ marca.niceName }}</span>
-
-</p>
-<span rel="models">
-  <ul typeof="ProducModel">
+  <span rel="brand">
+    <ul typeof="Brand">
+    <p>
+      <span property="name">{{ marca.name }}</span>
+      <span property="alternateName">, {{ marca.niceName }}</span>
+    </p>
+  </ul>
+  </span>
+  <span rel="model">
+    <ul typeof="ProductModel">
     {% for model in marca.models.all %}
         <li><a>
             <span property="name">{{ model.name }}</span>
         </a></li>
     {% empty %}<li>Sorry, no models for this brand yet.</li>
     {% endfor %}
-  </ul>
+    </ul>
+    </span>
 </span>
 
 {% endblock %}

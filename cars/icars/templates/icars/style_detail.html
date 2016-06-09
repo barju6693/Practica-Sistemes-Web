@@ -1,10 +1,10 @@
 {% extends "icars/base.html" %}
 {% block content %}
-<span vocab= "http://schema.org/" typeof="Product">
+<span vocab= "http://schema.org/" typeof="Vehicle">
     <h1>
       <span property="name">{{ estil.name }}</span>
     </h1>
-  <ul rel="organization">
+  <ul rel="manufacturer">
     <li typeof="Organization">
     	<h2>Make:</h2>
     	<p>
@@ -19,9 +19,7 @@
   	{% for model in estil.model.all %}
   	<ul rel = "model" >
       <p typeof ="ProductModel" >
-       <li><a href="{% url 'icars:model_detail' model.id 'html' %}">
         <span property="name">{{ model.name }}</span>
-       </a></li>
        {% empty %}<li>Sorry, model is not found.</li>
        {% endfor %}
       </p>
@@ -30,17 +28,13 @@
         {% for year in estil.year.all %}
         <li property="productionDate">{{ estil.year.year }}</li>
         {% endfor %}
-  	<ul rel="vehicle">
-      <li typeof="Vehicle">
+
         <h3>Submodel:</h3>
         <p>
-          <span property = "model">{{ estil.submodel.modelName }}</span>
           <span property = "alternateName">, {{ estil.submodel.niceName }}</span>
           <span property = "category">, {{ estil.submodel.body }}</span>
           <span property = "fuelType">, {{ estil.submodel.fuel }}</span>
           <span property = "vehicleInteriorType">, {{ estil.submodel.tuner }}</span>
         </p>
-      </li>
-    </ul>
 </span>
 {% endblock %}
